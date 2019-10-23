@@ -1,0 +1,14 @@
+部署公、私钥，实现远程ssh无密码验证
+1.192.168.4.7生成公、私钥
+ssh-keygen
+ls /root/.ssh
+ id_rsa id_rsa.pub known_hosts
+2.192.168.4.7传递公钥
+ssh-copy-id root@192.168.4.207
+3.192.168.4.20查看
+ls /root/.ssh/
+ authorized_keys
+4.192.168.4.7测试无密码同步
+rsync --delete -avz /opt/ root@190.168.4.207:/opt/
+
+ 
